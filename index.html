@@ -1,109 +1,136 @@
-
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="css/main.css">
-        <script src="app.js" defer></script>
-        <title>Document</title>
-    </head>
-    <body>
-        <dialog class="modal-menu">
-            <img src="assets/logo.svg" alt="Logo">
-            <button class="crimson play-cpu" tabindex="0">
-                <span>PLAY VS CPU</span>
-                <img src="assets/player-vs-cpu.svg" alt="Player vs CPU">
-            </button>
-            <button class="gold play-human" tabindex="0">
-                <span>PLAY VS PLAYER</span>
-                <img src="assets/player-vs-player.svg" alt="Player vs Player">
-            </button>
-            <button class="rules-btn" tabindex="0">GAME RULES</button>
-        </dialog>
-        <header>
-            <nav>
-                <ul>
-                    <li><button class="mini-btn pause-btn" tabindex="0">MENU</button></li>
-                    <li><img src="assets/logo.svg" alt="logo"></li>
-                    <li><button class="mini-btn restart-btn" tabindex="0">RESTART</button></li>
-                </ul>
-            </nav>
-        </header>
-        <main>
-            <article class="player-score">
-                <img src="assets/player-one.svg" alt="Player 1">
-                <p>PLAYER 1</p>
-                <h1 id="scorePlayer1">0</h1>
-            </article>
-            <div class="game-grid">
-                <div class="row crimson" id="active-row">
-                    <button tabindex="0"></button>
-                    <button tabindex="0"></button>
-                    <button tabindex="0"></button>
-                    <button tabindex="0"></button>
-                    <button tabindex="0"></button>
-                    <button tabindex="0"></button>
-                </div>
-                <div class="row crimson">
-                    <button tabindex="0"></button>
-                    <button tabindex="0"></button>  
-                    <button tabindex="0"></button>
-                    <button tabindex="0"></button>
-                    <button tabindex="0"></button>
-                    <button tabindex="0"></button>
-                </div>
-                <div class="row crimson">
-                    <button tabindex="0"></button>
-                    <button tabindex="0"></button>
-                    <button tabindex="0"></button>
-                    <button tabindex="0"></button>
-                    <button tabindex="0"></button>
-                    <button tabindex="0"></button>
-                </div>
-                <div class="row crimson">
-                    <button tabindex="0"></button>
-                    <button tabindex="0"></button>
-                    <button tabindex="0"></button>
-                    <button tabindex="0"></button>
-                    <button tabindex="0"></button>
-                    <button tabindex="0"></button>
-                </div>
-                <div class="row crimson">
-                    <button tabindex="0"></button>
-                    <button tabindex="0"></button>
-                    <button tabindex="0"></button>
-                    <button tabindex="0"></button>
-                    <button tabindex="0"></button>
-                    <button tabindex="0"></button>
-                </div>
-                <div class="row crimson">
-                    <button tabindex="0"></button>
-                    <button tabindex="0"></button>
-                    <button tabindex="0"></button>
-                    <button tabindex="0"></button>
-                    <button tabindex="0"></button>
-                    <button tabindex="0"></button>
-                </div>
-                <div class="row crimson">
-                    <button tabindex="0"></button>
-                    <button tabindex="0"></button>
-                    <button tabindex="0"></button>
-                    <button tabindex="0"></button>
-                    <button tabindex="0"></button>
-                    <button tabindex="0"></button>
-                </div>
-                <div class="countdown crimson">
-                    <p>PLAYER 1'S TURN</p>
-                    <span class="large value">14s</span>
-                </div>
-            </div>
-            <article class="player-score">
-                <img src="assets/player-two.svg" alt="Player 2">
-                <p>PLAYER 2</p>
-                <h1 id="scorePlayer2">0</h1>
-            </article>
-        </main>
-        <footer></footer>
-    </body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/main.css" />
+    <script src="app.js" defer></script>
+    <title>Document</title>
+  </head>
+  <body>
+    <dialog class="modal-menu">
+      <img src="assets/logo.svg" alt="Logo" />
+      <button class="crimson play-cpu" tabindex="0">
+        <span>PLAY VS CPU</span>
+        <img src="assets/player-vs-cpu.svg" alt="Player vs CPU" />
+      </button>
+      <button class="gold play-human" tabindex="0">
+        <span>PLAY VS PLAYER</span>
+        <img src="assets/player-vs-player.svg" alt="Player vs Player" />
+      </button>
+      <button class="rules-btn" tabindex="0">GAME RULES</button>
+    </dialog>
+    <dialog class="modal-rules">
+      <h1>RULES</h1>
+      <div class="rules-content">
+        <h2>OBJECTIVE</h2>
+        <p>
+          Be the first player to connect 4 of the same colored discs in a row
+          (either vertically, horizontally, or diagonally).
+        </p>
+
+        <h2>HOW TO PLAY</h2>
+        <ol>
+          <li>Red goes first in the first game.</li>
+          <li>
+            Players must alternate turns, and only one disc can be dropped in
+            each turn.
+          </li>
+          <li>The game ends when there is a 4-in-a-row or a stalemate.</li>
+          <li>
+            The starter of the previous game goes second on the next game.
+          </li>
+        </ol>
+      </div>
+      <button class="close-rules" aria-label="Close rules">
+        <img src="assets/icon-check.svg" alt="Close" />
+      </button>
+    </dialog>
+    <header>
+      <nav>
+        <ul>
+          <li><button class="mini-btn pause-btn" tabindex="0">MENU</button></li>
+          <li><img src="assets/logo.svg" alt="logo" /></li>
+          <li>
+            <button class="mini-btn restart-btn" tabindex="0">RESTART</button>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <article class="player-score">
+        <img src="assets/player-one.svg" alt="Player 1" />
+        <p>PLAYER 1</p>
+        <h1 id="scorePlayer1">0</h1>
+      </article>
+      <div class="game-grid">
+        <div class="row crimson" id="active-row">
+          <button tabindex="0"></button>
+          <button tabindex="0"></button>
+          <button tabindex="0"></button>
+          <button tabindex="0"></button>
+          <button tabindex="0"></button>
+          <button tabindex="0"></button>
+        </div>
+        <div class="row crimson">
+          <button tabindex="0"></button>
+          <button tabindex="0"></button>
+          <button tabindex="0"></button>
+          <button tabindex="0"></button>
+          <button tabindex="0"></button>
+          <button tabindex="0"></button>
+        </div>
+        <div class="row crimson">
+          <button tabindex="0"></button>
+          <button tabindex="0"></button>
+          <button tabindex="0"></button>
+          <button tabindex="0"></button>
+          <button tabindex="0"></button>
+          <button tabindex="0"></button>
+        </div>
+        <div class="row crimson">
+          <button tabindex="0"></button>
+          <button tabindex="0"></button>
+          <button tabindex="0"></button>
+          <button tabindex="0"></button>
+          <button tabindex="0"></button>
+          <button tabindex="0"></button>
+        </div>
+        <div class="row crimson">
+          <button tabindex="0"></button>
+          <button tabindex="0"></button>
+          <button tabindex="0"></button>
+          <button tabindex="0"></button>
+          <button tabindex="0"></button>
+          <button tabindex="0"></button>
+        </div>
+        <div class="row crimson">
+          <button tabindex="0"></button>
+          <button tabindex="0"></button>
+          <button tabindex="0"></button>
+          <button tabindex="0"></button>
+          <button tabindex="0"></button>
+          <button tabindex="0"></button>
+        </div>
+        <div class="row crimson">
+          <button tabindex="0"></button>
+          <button tabindex="0"></button>
+          <button tabindex="0"></button>
+          <button tabindex="0"></button>
+          <button tabindex="0"></button>
+          <button tabindex="0"></button>
+        </div>
+        <div class="countdown crimson">
+          <p>PLAYER 1'S TURN</p>
+          <span class="large value">14s</span>
+        </div>
+      </div>
+      <article class="player-score">
+        <img src="assets/player-two.svg" alt="Player 2" />
+        <p>PLAYER 2</p>
+        <h1 id="scorePlayer2">0</h1>
+      </article>
+    </main>
+    <footer></footer>
+  </body>
 </html>
