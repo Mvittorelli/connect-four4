@@ -17,7 +17,8 @@
 
 body {
   display: flex;
-  justify-content: center; 
+  align-items: center;
+  /* justify-content: center; */
   flex-direction: column;
   min-height: 100vh;
   background-color: var(--purple);
@@ -57,7 +58,6 @@ main {
   flex: 1;
   display: flex;
   flex-direction: row;
-  justify-content: center;
   align-items: center;
   padding: 32px;
   gap: 32px;
@@ -65,11 +65,21 @@ main {
 
 header {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
-  width: 60vmin;
+  width: 100%;
   padding: 16px 0;
-  margin: 0 auto;
+  position: relative;
+}
+
+header > *:first-child {
+  position: absolute;
+  left: 30%;
+}
+
+header > *:last-child {
+  position: absolute;
+  right: 30%;
 }
 
 nav {
@@ -274,6 +284,10 @@ dialog[open] {
 
 .pause,
 .modal-menu {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   flex-direction: column;
   gap: 32px;
   padding: 32px;
@@ -283,6 +297,7 @@ dialog[open] {
   color: var(--white);
   background-color: var(--purple);
   border: 3px solid var(--black);
+  margin: 0;
 }
 
 .modal-menu {
@@ -336,6 +351,7 @@ dialog[open] {
 }
 
 footer {
+  width: 90%;
   background-color: var(--yellow);
   border-radius: 60px 60px 0 0;
   padding: 32px;
@@ -384,4 +400,66 @@ dialog {
 .player-score img {
   width: 40px;
   height: 40px;
+}
+
+.modal-rules {
+  overflow: visible;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 32px;
+  border: 3px solid var(--black);
+  border-radius: 20px;
+  width: 50%;
+  max-width: 480px;
+  background-color: var(--white);
+  flex-direction: column;
+  gap: 16px;
+  box-shadow: 0px 10px 0px 0px var(--black);
+  margin: 0;
+}
+
+.modal-rules h1 {
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+.rules-content {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.rules-content h2 {
+  color: var(--purple);
+  margin-bottom: 8px;
+}
+
+.rules-content ol {
+  list-style-position: inside;
+  padding-left: 16px;
+}
+
+.rules-content li {
+  margin-bottom: 8px;
+}
+
+.close-rules {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%, 50%);
+  width: 64px;
+  height: 64px;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--red);
+  border-radius: 50%;
+}
+
+.close-rules:hover {
+  background-color: var(--dark-purple);
 }
